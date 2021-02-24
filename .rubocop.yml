@@ -1,0 +1,31 @@
+require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - bin/*
+    - bin/bundle
+    - config/environments/*
+    - db/**/*
+    - Gemfile
+    - node_modules/**/*
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - config/application.rb
+    - config/environments/*
+    - config/initializers/*
+    - config/routes.rb
