@@ -2,25 +2,29 @@
 
 <h1>Links</h1>
 
+<h2>New link</h2>
+<%= render 'form', link: @link %>
+
 <table>
-  <%= render 'form', link: @link %>
 
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th colspan="1">Shorten URL</th>
+      <th colspan="1">Default URL</th>
+      <th colspan="1">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @links.each do |link| %>
       <tr>
-        <td><%= link_to "#{link_url}", link %></td>
-        <td><%= link_to 'Supprimer', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "#{request.base_url}/#{link.code}", link_show_path(link.code), target: :_blank %></td>
+        <td><%= link_to "#{link.url}", "#{link.url}", target: :_blank %></td>
+        <td>
+          <%= link_to 'Supprimer', link, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Tracks', link %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New link', new_link_path %>

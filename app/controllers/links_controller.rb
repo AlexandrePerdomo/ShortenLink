@@ -10,22 +10,25 @@ class LinksController < ApplicationController
   end
 
   # Add counter visit + redirection
-  def show; end
+  def show
+    redirect_to @link.url
+  end
 
   def create
     @link = Link.new(link_params)
     if @link.save
-      redirect_to @link, notice: 'link was successfully created.'
+      redirect_to root_path, notice: 'Link was successfully created.'
     else
+      @links = Link.all
       render :index, status: :unprocessable_entity
     end
   end
 
-  # DELETE /links/1 or /links/1.json
   def destroy
     if @link.destroy
-      redirect_to links_url, notice: 'Link was successfully destroyed.'
+      redirect_to root_path, notice: 'Link was successfully destroyed.'
     else
+      @links = Link.all
       render :index, status: :unprocessable_entity
     end
   end
@@ -36,8 +39,8 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
   end
 
-  def set_link
-    @link = Link.find(params[:id])
+  def set_link_by_code
+    @link = Link.find_by(code: params[:id])
   end
 
   def link_params

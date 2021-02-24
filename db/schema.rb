@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_164025) do
 
   create_table "links", force: :cascade do |t|
     t.string "url", null: false
-    t.string "code", limit: 10, null: false
+    t.string "code", limit: 10, default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
