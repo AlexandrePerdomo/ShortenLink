@@ -2,8 +2,8 @@
   <%= f.error_notification %>
 
 
-  <div class="form-inputs d-flex justify-content-between align-content-center">
-    <%= f.input :url, label: false, placeholder: 'Enter your link' %>
+  <div class="form-inline justify-content-between mb-2">
+    <%= f.input :url, label: false, placeholder: 'Enter your link', input_html: { class: 'large_field' } %>
     <%= f.button :submit, class: 'form-group' %>
   </div>
 <% end %>

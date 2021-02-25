@@ -1,15 +1,14 @@
 <div class="row">
   <div class="col-12">
-    <h1>Shorten your links and tracks them easily</h1>
+    <h2>Shorten links and tracks them easily</h2>
   </div>
 
-  <div class="col-12">
+  <div class="col-10 offset-1">
     <%= render 'form', link: @link %>
   </div>
 
   <div class="col-12">
     <table class="table">
-
       <thead>
         <tr>
           <th colspan="1">Shorten URL</th>
@@ -28,7 +27,7 @@
                 <i class="bi bi-trash"></i>
               <% end %>
               |
-              <%= link_to 'Follow link visits', link_tracks_path(link), remote: true %>
+              <%= link_to 'Track link visits', link_tracks_path(link), remote: true %>
             </td>
           </tr>
         <% end %>
