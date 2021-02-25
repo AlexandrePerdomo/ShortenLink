@@ -28,6 +28,9 @@ gem 'groupdate'
 # Easy URL validation
 gem 'validate_url'
 
+gem 'bootstrap', '~> 4.0.0'
+gem 'simple_form'
+
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'rubocop'

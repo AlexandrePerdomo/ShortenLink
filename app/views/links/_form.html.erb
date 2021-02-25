@@ -1,18 +1,9 @@
-<%= form_with(model: link) do |form| %>
-  <% if link.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
+<%= simple_form_for @link do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-        <% link.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="actions">
-    <%= form.text_field :url %>
-    <%= form.submit %>
+  <div class="form-inputs d-flex justify-content-between align-content-center">
+    <%= f.input :url, label: false, placeholder: 'Enter your link' %>
+    <%= f.button :submit, class: 'form-group' %>
   </div>
 <% end %>

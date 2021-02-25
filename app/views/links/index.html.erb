@@ -1,32 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-12">
+    <h1>Shorten your links and tracks them easily</h1>
+  </div>
 
-<h1>Links</h1>
+  <div class="col-12">
+    <%= render 'form', link: @link %>
+  </div>
 
-<h2>New link</h2>
-<%= render 'form', link: @link %>
+  <div class="col-12">
+    <table class="table">
 
-<table>
+      <thead>
+        <tr>
+          <th colspan="1">Shorten URL</th>
+          <th colspan="1">Default URL</th>
+          <th colspan="1">Actions</th>
+        </tr>
+      </thead>
 
-  <thead>
-    <tr>
-      <th colspan="1">Shorten URL</th>
-      <th colspan="1">Default URL</th>
-      <th colspan="1">Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @links.each do |link| %>
-      <tr>
-        <td><%= link_to "#{request.base_url}/#{link.code}", link_show_path(link.code), target: :_blank %></td>
-        <td><%= link_to "#{link.url}", "#{link.url}", target: :_blank %></td>
-        <td>
-          <%= link_to 'Supprimer', link, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <%= link_to 'Tracks', link_tracks_path(link), remote: true %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<div id="chart"></div>
+      <tbody>
+        <% @links.each do |link| %>
+          <tr>
+            <td><%= link_to "#{request.base_url}/#{link.code}", link_show_path(link.code), target: :_blank %></td>
+            <td><%= link_to "#{link.url}", "#{link.url}", target: :_blank %></td>
+            <td>
+              <%= link_to link, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="bi bi-trash"></i>
+              <% end %>
+              |
+              <%= link_to 'Follow link visits', link_tracks_path(link), remote: true %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-10 offset-1">
+    <div id="chart"></div>
+  </div>
+</div>

@@ -25,7 +25,7 @@ class LinksController < ApplicationController
       add_id_to_cookies(@link.id)
       redirect_to root_path, notice: 'Link was successfully created.'
     else
-      @links = Link.all
+      @links = Link.from_cookies(read_ids_from_cookies)
       render :index, status: :unprocessable_entity
     end
   end
@@ -35,7 +35,7 @@ class LinksController < ApplicationController
       remove_id_from_cookies(@link.id)
       redirect_to root_path, notice: 'Link was successfully destroyed.'
     else
-      @links = Link.all
+      @links = Link.from_cookies(read_ids_from_cookies)
       render :index, status: :unprocessable_entity
     end
   end
