@@ -1,6 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 h2 { margin: 1rem 0; }
 .form-group.required {
-	width: 80%;
-	.large_field {width: 100%;}
+  width: 80%;
+  .large_field {width: 100%;}
 }
+.table-wrap {
+  height: 250px;
+  overflow-y: auto;
+}
+.tableFixHead          { overflow-y: auto; height: 250px; }
+.tableFixHead thead th { position: sticky; top: 0; }
+
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; }
+th     { background:#eee; }

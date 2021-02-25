@@ -15,7 +15,7 @@ class LinksController < ApplicationController
       LinkVisit.create!(link: @link)
       redirect_to @link.url
     else
-      redirect_to root_path, alert: 'An error has occured.'
+      redirect_to root_path, alert: "This shorten link don't exists"
     end
   end
 
