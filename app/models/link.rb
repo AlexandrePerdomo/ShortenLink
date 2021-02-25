@@ -28,8 +28,8 @@ class Link < ApplicationRecord
 
   # Used to avoid shorten link beeing shorten again
   def not_in_current_domain_url
-    return if url.split(ENV["DOMAIN_NAME"]).length < 2
+    return if url.split(ENV['DOMAIN_NAME']).length < 2
 
-    errors.add(:url, "This URL is already shorten")
+    errors.add(:url, 'This URL is already shorten')
   end
 end

@@ -8,9 +8,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-if ['development'].include? ENV['RAILS_ENV']
-  Dotenv::Railtie.load
-end
+Dotenv::Railtie.load if ['development'].include? ENV['RAILS_ENV']
 
 module Recordit
   class Application < Rails::Application
@@ -22,7 +20,7 @@ module Recordit
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
+    config.time_zone = 'Europe/Paris'
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end

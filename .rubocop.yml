@@ -24,7 +24,7 @@ Style/Documentation:
 
 Metrics/BlockLength:
   Exclude:
-    config/initializers/*
+    - config/initializers/*
 
 Layout/LineLength:
   Max: 120
