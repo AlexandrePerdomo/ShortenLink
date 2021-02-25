@@ -1,0 +1,6 @@
+<% grouped_link_visits = link_visits.group_by_minute(:created_at, last: 60, format: "%H:%M").count %>
+<%= column_chart grouped_link_visits,
+				 min: 0,
+			   	 max: [2, grouped_link_visits.values.max].max,
+			   	 Axis: {format: '0'},
+				 xtitle: "Horaires", ytitle: "Nombre de visites" %>

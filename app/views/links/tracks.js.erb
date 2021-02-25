@@ -1,5 +1,4 @@
-console.warn('toto');
 $('#chart').html(
-  `<%= column_chart @link_visits.group_by_minute(:created_at, last: 60, format: "%H:%M").count, xtitle: "Horaires", ytitle: "Nombre de visites" %>`
+  `<%= render "tracks", link_visits: @link_visits %>`
 )
 
