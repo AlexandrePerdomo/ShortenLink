@@ -8,7 +8,7 @@ h2 { margin: 1rem 0; }
   height: 250px;
   overflow-y: auto;
 }
-.tableFixHead          { overflow-y: auto; height: 250px; }
+.tableFixHead          { overflow-y: auto; max-height: 250px; }
 .tableFixHead thead th { position: sticky; top: 0; }
 
 /* Just common table stuff. Really. */
