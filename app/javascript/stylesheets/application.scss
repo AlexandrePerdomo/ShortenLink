@@ -1,0 +1,6 @@
+@import '~bootstrap/scss/bootstrap';
+h2 { margin: 1rem 0; }
+.form-group.required {
+	width: 80%;
+	.large_field {width: 100%;}
+}
