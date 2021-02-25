@@ -22,6 +22,10 @@ Style/AsciiComments:
 Style/Documentation:
   Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+    config/initializers/*
+
 Layout/LineLength:
   Max: 120
   Exclude:
