@@ -30,9 +30,9 @@ gem 'validate_url'
 
 gem 'simple_form'
 
-# Handle .env file for config 
-gem 'dotenv-rails', groups: [:development, :test]
 group :development do
+  # Handle .env file for config 
+  gem 'dotenv-rails'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'rubocop'
   gem 'rubocop-rails'
