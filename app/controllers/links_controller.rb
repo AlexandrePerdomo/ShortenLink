@@ -5,7 +5,7 @@ class LinksController < ApplicationController
   before_action :set_link_by_code, only: %i[show]
 
   def index
-    @links = Link.all
+    @links = Link.from_cookies(read_ids_from_cookies)
     @link = Link.new
   end
 
@@ -17,6 +17,7 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(link_params)
     if @link.save
+      add_id_to_cookies(@link.id)
       redirect_to root_path, notice: 'Link was successfully created.'
     else
       @links = Link.all
@@ -26,6 +27,7 @@ class LinksController < ApplicationController
 
   def destroy
     if @link.destroy
+      remove_id_from_cookies(@link.id)
       redirect_to root_path, notice: 'Link was successfully destroyed.'
     else
       @links = Link.all
@@ -45,5 +47,21 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:url)
+  end
+
+  def read_ids_from_cookies
+    return [] unless cookies[:link_ids]
+
+    JSON.parse cookies[:link_ids]
+  end
+
+  def add_id_to_cookies(id)
+    ids = read_ids_from_cookies
+    cookies[:link_ids] = JSON.generate(ids << id)
+  end
+
+  def remove_id_from_cookies(id)
+    ids = read_ids_from_cookies
+    cookies[:link_ids] = JSON.generate(ids - [id])
   end
 end

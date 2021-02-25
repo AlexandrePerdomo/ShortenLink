@@ -6,6 +6,7 @@ class Link < ApplicationRecord
   validates :url, presence: true, url: true
 
   scope :with_code, ->(code) { where(code: code) }
+  scope :from_cookies, ->(link_ids) { where(id: link_ids) }
 
   def set_code
     return if code.length == 8

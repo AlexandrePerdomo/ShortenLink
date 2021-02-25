@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 # Graph for Ruby
 gem 'gruff'
-# Easy URL validation 
+# Easy URL validation
 gem 'validate_url'
 
 group :development do
