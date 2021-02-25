@@ -17,3 +17,9 @@ require('jquery')
 require('chartkick')
 require('chart.js')
 require('bootstrap')
+
+$(function() {
+  setTimeout(function(){
+    $('.alert').slideUp(500);
+  }, 3000);
+});
