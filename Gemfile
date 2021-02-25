@@ -21,8 +21,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-# Graph for Ruby
-gem 'gruff'
+# Graph for Ruby On Rails
+gem 'chartkick'
+# Methods to group by date for chart
+gem 'groupdate'
 # Easy URL validation
 gem 'validate_url'
 

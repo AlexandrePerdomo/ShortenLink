@@ -35,6 +35,9 @@ class LinksController < ApplicationController
     end
   end
 
+  def tracks
+  end
+
   private
 
   def set_link
