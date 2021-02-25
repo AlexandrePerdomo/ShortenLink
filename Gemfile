@@ -28,7 +28,6 @@ gem 'groupdate'
 # Easy URL validation
 gem 'validate_url'
 
-gem 'bootstrap', '~> 4.0.0'
 gem 'simple_form'
 
 group :development do

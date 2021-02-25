@@ -8,7 +8,7 @@
   </div>
 
   <div class="col-12">
-    <table class="table">
+    <table class="table table-responsive-md">
       <thead>
         <tr>
           <th colspan="1">Shorten URL</th>
@@ -27,7 +27,9 @@
                 <i class="bi bi-trash"></i>
               <% end %>
               |
-              <%= link_to 'Track link visits', link_tracks_path(link), remote: true %>
+              <%= link_to link_tracks_path(link), remote: true do %>
+                <i class="bi bi-bar-chart-fill"></i>
+              <% end %>
             </td>
           </tr>
         <% end %>
