@@ -5,7 +5,7 @@ class LinksController < ApplicationController
   before_action :set_link_by_code, only: %i[show]
 
   def index
-    @links = Link.from_cookies(read_ids_from_cookies)
+    @links = Link.from_cookies(read_ids_from_cookies).reverse
     @link = Link.new
   end
 
@@ -25,7 +25,7 @@ class LinksController < ApplicationController
       add_id_to_cookies(@link.id)
       redirect_to root_path, notice: 'Link was successfully created.'
     else
-      @links = Link.from_cookies(read_ids_from_cookies)
+      @links = Link.from_cookies(read_ids_from_cookies).reverse
       render :index, status: :unprocessable_entity
     end
   end
@@ -35,7 +35,7 @@ class LinksController < ApplicationController
       remove_id_from_cookies(@link.id)
       redirect_to root_path, notice: 'Link was successfully destroyed.'
     else
-      @links = Link.from_cookies(read_ids_from_cookies)
+      @links = Link.from_cookies(read_ids_from_cookies).reverse
       render :index, status: :unprocessable_entity
     end
   end
