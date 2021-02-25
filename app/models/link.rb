@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Link < ApplicationRecord
+  has_many :link_visits
   before_validation :set_code
   validates :code, presence: true
   validates :url, presence: true, url: true
