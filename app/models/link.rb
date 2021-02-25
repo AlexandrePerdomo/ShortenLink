@@ -3,7 +3,7 @@
 class Link < ApplicationRecord
   before_validation :set_code
   validates :code, presence: true
-  validates :url, presence: true
+  validates :url, presence: true, url: true
 
   scope :with_code, ->(code) { where(code: code) }
 
@@ -16,7 +16,7 @@ class Link < ApplicationRecord
   end
 
   def generate_random_code
-    rand(36**4).to_s(36)
+    rand(36**8).to_s(36)
   end
 
   def already_used_code?(code)

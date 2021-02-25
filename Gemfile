@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 # Graph for Ruby
 gem 'gruff'
+# Easy URL validation 
+gem 'validate_url'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
