@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class LinksController < ApplicationController
-  before_action :set_link, only: %i[destroy]
+  before_action :set_link, only: %i[destroy tracks]
   before_action :set_link_by_code, only: %i[show]
 
   def index
@@ -11,7 +11,12 @@ class LinksController < ApplicationController
 
   # Add counter visit + redirection
   def show
-    redirect_to @link.url
+    if @link
+      LinkVisit.create!(link: @link)
+      redirect_to @link.url
+    else
+      redirect_to root_path, alert: 'An error has occured.'
+    end
   end
 
   def create
@@ -36,6 +41,7 @@ class LinksController < ApplicationController
   end
 
   def tracks
+    @link_visits = @link.link_visits
   end
 
   private

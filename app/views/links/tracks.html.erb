@@ -1,1 +1,0 @@
-<%= column_chart Link.where(created_at: (Time.now - 3600)..(Time.now)).group_by_minute(:created_at).count %>
